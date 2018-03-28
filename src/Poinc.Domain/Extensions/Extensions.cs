@@ -1,5 +1,5 @@
-﻿using Poinc.Domain.Builder;
-using System;
+﻿using System;
+using Poinc.Domain.Builders;
 
 namespace Poinc.Domain.Extensions
 {

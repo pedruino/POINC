@@ -4,11 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace Poinc.Domain.Builder
+namespace Poinc.Domain.Builders
 {
-    public sealed class ProjectBuilder : BaseBuilder<IProject>
+    public sealed class ProjectBuilder : Builder<IProject>
     {
-        private IReadOnlyList<IClient> clients;
+        private IReadOnlyList<IWorkerClient> clients;
         private Guid id;
         private string name;
 
@@ -16,11 +16,11 @@ namespace Poinc.Domain.Builder
         {
             return new Project(id, name)
             {
-                Clients = new ObservableCollection<IClient>(this.clients)
+                Clients = new ObservableCollection<IWorkerClient>(clients)
             };
         }
 
-        public ProjectBuilder WithClients(IReadOnlyList<IClient> clients) => this.SetProperty(ref this.clients, clients);
+        public ProjectBuilder WithClients(IReadOnlyList<IWorkerClient> clients) => this.SetProperty(ref this.clients, clients);
 
         public ProjectBuilder WithId(Guid id) => this.SetProperty(ref this.id, id);
 

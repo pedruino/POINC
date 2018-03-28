@@ -1,16 +1,16 @@
 ﻿using Poinc.Domain.Extensions;
 using Poinc.Domain.Model;
 
-namespace Poinc.Domain.Builder
+namespace Poinc.Domain.Builders
 {
-    public sealed class ProjectDefinitionBuilder : BaseBuilder<IProjectDefinition>
+    public sealed class ProjectDefinitionBuilder : Builder<IProjectDefinition>
     {
         private string name;
         private string path;
 
         public override IProjectDefinition Build()
         {
-            return new ProjectDefinition(this.name, this.path);
+            return new ProjectDefinition(name, path);
         }
 
         public ProjectDefinitionBuilder WithName(string name) => this.SetProperty(ref this.name, name);

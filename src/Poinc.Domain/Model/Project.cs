@@ -11,7 +11,7 @@ namespace Poinc.Domain.Model
             Name = name;
         }
 
-        public ObservableCollection<IClient> Clients { get; set; }
+        public ObservableCollection<IWorkerClient> Clients { get; set; }
         public Guid Id { get; }
         public string Name { get; }
         public float Percentage { get; set; }
